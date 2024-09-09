@@ -89,7 +89,7 @@ final public class SessionManager: NSObject {
     ///- responseType: The response type we want to send.
     /// - Returns: Publisher with response type or error
     private func handle<T: Codable>(urlError: URLError, route: Routable, responseType: T.Type) throws -> AnyPublisher<T, SessionError> {
-        /// As we mapped the 401 and 403 to userAuthenticationRequired error, so handling that here. Let's refresh the accessToken with Refresh token api.
+        /// As we mapped the 401 to userAuthenticationRequired error, so handling that here. Let's refresh the accessToken with Refresh token api.
         if urlError.code == .userAuthenticationRequired || urlError.code == .userCancelledAuthentication {
             if route.endPoint != RefreshTokenRouter.refreshToken.endPoint {
                 if refreshTokenPublisher == nil {
@@ -101,12 +101,12 @@ final public class SessionManager: NSObject {
                     UserStore.accessToken = refreshTokenModel.accessToken
                     /// Making the refresh token publisher as nil as it intended its pupose.
                     self.refreshTokenPublisher = nil
-                    /// Finally making the same api call so that last api which thown 401 or 403 can be refetched again.
+                    /// Finally making the same api call so that last api which thown 401 can be refetched again.
                     return self.dataTaskPublisher(route: route, responseType: responseType)
                 }
                 .eraseToAnyPublisher()
             } else {
-                /// If the 401 or 403 returned by the refreshToken api itself then don't refresh the token again, it mean the refreshtoken is also expired. If we don that that means we are making the infinite loop here.
+                /// If the 401 returned by the refreshToken api itself then don't refresh the token again, it mean the refreshtoken is also expired. If we don that that means we are making the infinite loop here.
                 throw urlError
             }
         } else {
@@ -123,11 +123,14 @@ final public class SessionManager: NSObject {
             /// If response is not available throw an error.
             throw URLError(.badServerResponse)
         }
-        /// If status code is 401 or 403 let's userAuthenticationRequired error, so that appropriate actions can be take.
-        if response.statusCode == 401 || response.statusCode == 403 {
+        /// If status code is 401 let's userAuthenticationRequired error, so that appropriate actions can be take.
+        if response.statusCode == StatusCode.authoriztionFailed.rawValue {
             throw URLError(.userAuthenticationRequired)
+        } else if response.statusCode == StatusCode.success.rawValue {
+            /// Incase of status code 200 return the data.
+            return element.data
         }
         /// Like wise you can add multiple error and success cases, for error case you have to throw an error and for success case you have to return some data.
-        return element.data
+        throw URLError(.unknown)
     }
 }

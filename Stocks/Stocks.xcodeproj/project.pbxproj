@@ -17,6 +17,8 @@
 		645B148C2C746ED80056FA37 /* StockItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645B148B2C746ED80056FA37 /* StockItemModel.swift */; };
 		645B14922C7473D10056FA37 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645B14912C7473D10056FA37 /* Parser.swift */; };
 		645B14952C7489A60056FA37 /* StockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645B14942C7489A60056FA37 /* StockViewModel.swift */; };
+		6489F05A2C8EC705005B8CB0 /* UserStoreKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6489F0592C8EC705005B8CB0 /* UserStoreKeyTest.swift */; };
+		6489F05D2C8EC945005B8CB0 /* UserStoreKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6489F05C2C8EC945005B8CB0 /* UserStoreKey.swift */; };
 		64A1BA8C2C7B783100859E65 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A1BA832C7B783100859E65 /* SessionManager.swift */; };
 		64A1BA8D2C7B783100859E65 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A1BA852C7B783100859E65 /* Enviroment.swift */; };
 		64A1BA8E2C7B783100859E65 /* MethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A1BA862C7B783100859E65 /* MethodType.swift */; };
@@ -64,6 +66,8 @@
 		645B148B2C746ED80056FA37 /* StockItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockItemModel.swift; sourceTree = "<group>"; };
 		645B14912C7473D10056FA37 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		645B14942C7489A60056FA37 /* StockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewModel.swift; sourceTree = "<group>"; };
+		6489F0592C8EC705005B8CB0 /* UserStoreKeyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoreKeyTest.swift; sourceTree = "<group>"; };
+		6489F05C2C8EC945005B8CB0 /* UserStoreKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoreKey.swift; sourceTree = "<group>"; };
 		64A1BA832C7B783100859E65 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		64A1BA852C7B783100859E65 /* Enviroment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		64A1BA862C7B783100859E65 /* MethodType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodType.swift; sourceTree = "<group>"; };
@@ -136,7 +140,7 @@
 		6457EA352C89B4C70098701E /* UserStore */ = {
 			isa = PBXGroup;
 			children = (
-				6457EA372C89B4F10098701E /* Model */,
+				6489F05B2C8EC92F005B8CB0 /* Model */,
 				6457EA362C89B4E40098701E /* Manager */,
 			);
 			path = UserStore;
@@ -148,13 +152,6 @@
 				6457EA382C89B5210098701E /* UserStore.swift */,
 			);
 			path = Manager;
-			sourceTree = "<group>";
-		};
-		6457EA372C89B4F10098701E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		6457EA3A2C89B5C20098701E /* RefreshToken */ = {
@@ -208,6 +205,14 @@
 				64A1BA972C7B7AEF00859E65 /* SearchStockServiceProvider.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6489F05B2C8EC92F005B8CB0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6489F05C2C8EC945005B8CB0 /* UserStoreKey.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		64A1BA842C7B783100859E65 /* Manager */ = {
@@ -297,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				645B14912C7473D10056FA37 /* Parser.swift */,
+				6489F0592C8EC705005B8CB0 /* UserStoreKeyTest.swift */,
 			);
 			path = StocksTests;
 			sourceTree = "<group>";
@@ -480,6 +486,7 @@
 				64A1BA962C7B7A1B00859E65 /* SeachStockProtocols.swift in Sources */,
 				64A1BA8E2C7B783100859E65 /* MethodType.swift in Sources */,
 				64A1BA8F2C7B783100859E65 /* Routable.swift in Sources */,
+				6489F05D2C8EC945005B8CB0 /* UserStoreKey.swift in Sources */,
 				64A1BA902C7B783100859E65 /* SessionError.swift in Sources */,
 				64A1BA982C7B7AEF00859E65 /* SearchStockServiceProvider.swift in Sources */,
 				64A1BA8D2C7B783100859E65 /* Enviroment.swift in Sources */,
@@ -502,6 +509,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6489F05A2C8EC705005B8CB0 /* UserStoreKeyTest.swift in Sources */,
 				645B14922C7473D10056FA37 /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

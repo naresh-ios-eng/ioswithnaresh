@@ -15,19 +15,19 @@ final class UserStore {
     
     static var accessToken: String? {
         set {
-            UserDefaults.standard.setValue(newValue, forKey: "accessTokenKey")
+            UserDefaults.standard.setValue(newValue, forKey: UserStoreKey.accessToken.key)
         }
         get {
-            UserDefaults.standard.string(forKey: "accessTokenKey")
+            UserDefaults.standard.string(forKey: UserStoreKey.accessToken.key)
         }
     }
     
     static var refreshToken: String? {
         set {
-            UserDefaults.standard.setValue(newValue, forKey: "refreshTokenKey")
+            UserDefaults.standard.setValue(newValue, forKey: UserStoreKey.accessToken.key)
         }
         get {
-            UserDefaults.standard.string(forKey: "refreshTokenKey")
+            UserDefaults.standard.string(forKey: UserStoreKey.accessToken.key)
         }
     }
 }
